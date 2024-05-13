@@ -1,0 +1,16 @@
+body{
+    font-family: 'Lucida Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.form{
+    padding: 4px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    background-color: lightslategray;
+}
