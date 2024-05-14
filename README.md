@@ -1,1 +1,1 @@
-chat bot com api key do google ai studio
+chat bot com api key da AI gemini 
