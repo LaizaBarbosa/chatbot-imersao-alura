@@ -27,7 +27,7 @@
     <section class="form">
         <form method="post" action="/">
             <input name="text" id="text" value="{{request.form['text']}}" class="textInput">
-            <input type="submit" value="Perguntar" oninput="clearInput()" class="submitInput"> 
+            <input type="submit" value="Perguntar" onclick="clearInput()" class="submitInput"> 
         </form>
     </section>
 
@@ -44,7 +44,7 @@
             };
 
             function clearInput(){
-                if(response.length([-1])){
+                if(response.length(-1)){
                     Document.getElementById("text").value = ''
                 }
             }
