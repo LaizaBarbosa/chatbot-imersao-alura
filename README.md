@@ -1,6 +1,6 @@
 <h1>🤖 ChatBot com API Gemini</h1>
 
-Esse projeto é um chatbot criado com python como linguagem principal e framework Flask para interface web, utilizando a API da inteligência arficial do Google, o Gemini. Ele foi desenvolvido a partir da #imersao-ia-alura-google.
+Esse projeto é um chatbot criado com python como linguagem principal e framework Flask para interface web, utilizando a API da inteligência arficial do Google, o Gemini. Ele foi desenvolvido a partir da imersão de IA da Alura com o Google.
 
 ---
 <h2>📚 Bibliotecas usadas</h2>
