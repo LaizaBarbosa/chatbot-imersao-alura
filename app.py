@@ -39,27 +39,34 @@ chat = model.start_chat(history=[])
 
 @app.route("/", methods=["GET","POST"])
 def makePrompt():
+    try:
+      if request.method == "POST":
+          text = request.form["text"]
+          
+          response = chat.send_message(text)
+          response.resolve()
 
-    if request.method == "POST":
-        text = request.form["text"]
-        
-        response = chat.send_message(text)
-        response.resolve()
+          result = (message for message in chat.history)
+          if(result):
+              text = request.form["text"].replace(text, '')
 
-        result = (message for message in chat.history)
-        if(result):
-            text = request.form["text"].replace(text, '')
+          # passando a resposta do gemini com formatação markdown padrão 
+          modelResponse = response.text
+          modelResponse = markdown.markdown(modelResponse)
+                  
 
-        # passando a resposta do gemini com formatação markdown padrão 
-        modelResponse = response.text
-        modelResponse = markdown.markdown(modelResponse)
-                
+          return render_template(
+              "chatTemplate.html",
+              result = result,
+              modelResponse = modelResponse
+          )
+      
+      else:
+          return render_template("chatTemplate.html", result = None)
 
+    except Exception as e:
         return render_template(
-            "chatTemplate.html",
-            result = result,
-            modelResponse = modelResponse
+            "error.html",
+            error = e
         )
     
-    else:
-        return render_template("chatTemplate.html", result = None)
