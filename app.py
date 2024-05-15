@@ -58,7 +58,6 @@ def makePrompt():
         return render_template(
             "chatTemplate.html",
             result = result,
-            response = response,
             modelResponse = modelResponse
         )
     

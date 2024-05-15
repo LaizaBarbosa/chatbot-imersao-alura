@@ -2,6 +2,7 @@ body{
     font-family: 'Lucida Sans', sans-serif;
     margin: 0px;
     padding: 0;
+    background-color: #fcf3f8;
 }
 
 .form{
@@ -9,13 +10,18 @@ body{
     width: 100%;
     bottom: 0;
     position: fixed;
-    background-color: lightslategray;
+    background-color: rgb(14, 15, 15);
     height: 45px;
 }
 
 .chat{
-    margin-bottom: 45px;
-    padding: 4px;
+    padding: 16px;
+    margin-bottom: 8px;
+    min-height: 600px;
+    max-height:fit-content ;
+    -webkit-box-shadow: 1px -5px 18px 5px rgba(0,0,0,0.24);
+    -moz-box-shadow: 1px -5px 18px 5px rgba(0,0,0,0.24);
+    box-shadow: 1px -5px 18px 5px rgba(0,0,0,0.24);
 }
 
 .textInput{
@@ -31,27 +37,29 @@ body{
     border: none;
     border-radius: 8px;
     width: 15%;
-    background-color: midnightblue;
+    background-color: rgb(63, 27, 60);
     color: white;
     height: 30px;
     margin: 8px;
 }
 
-.modelResponse{
-    margin: 0px;
-    background-color: lightgreen;
-    border-radius: 8px;
+.submitInput:hover{
+    background-color: rgb(105, 40, 100);
+}
+
+.modelResponse, .role, .userPrompt{
+    margin: 0;
 }
 
 .role{
-    margin: 0;
+
     opacity: 0.8;
     font-size: 15px;
     font-style: italic;
 }
 
-.userPrompt{
-    padding: 0;
-    background-color:lightblue;
-    border-radius: 8px;
+.initialPhrase{
+    text-align: center;
+    font-size: 25px;
 }
+  

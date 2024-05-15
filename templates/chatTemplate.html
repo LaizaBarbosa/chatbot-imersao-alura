@@ -7,11 +7,9 @@
     <title>ChatBot</title>
 </head>
 <body>
-
-    <header>Faça uma pergunta</header>
     
     <section class="chat">
-        {%+ if response +%}
+        {%+ if result +%}
             {%for message in result -%}
                 <strong class="role"> {{message.role}} </strong>
                 {% if message.role == 'user' %}
@@ -19,9 +17,10 @@
                 {% else %}
                     <p id="modelResponse" class="modelResponse"> {{ modelResponse | safe }} </p>
                 {% endif %}
+                <br>
             {%- endfor %}
-        {% else %}
-            <p>carregando...</p>
+        {% else %}  
+            <p class="initialPhrase">Digite um comando</p>
         {% endif %}
     </section>
     
