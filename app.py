@@ -54,6 +54,12 @@ def makePrompt():
               text = text
           )
 
+      else:
+        return render_template(
+              'chatTemplate.html',
+              modelResponse = None
+          )
+      
     except Exception as e:
         return render_template(
             "error.html",
