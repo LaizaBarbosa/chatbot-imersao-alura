@@ -35,7 +35,6 @@ safety_settings = [
 ]
 
 model = genai.GenerativeModel('gemini-pro', safety_settings=safety_settings, generation_config=generation_config)
-chat = model.start_chat(history=[]) 
 
 @app.route("/", methods=["GET","POST"])
 def makePrompt():
@@ -43,26 +42,17 @@ def makePrompt():
       if request.method == "POST":
           text = request.form["text"]
           
-          response = chat.send_message(text)
+          response = model.generate_content(text)
           response.resolve()
-
-          result = (message for message in chat.history)
-          if(result):
-              text = request.form["text"].replace(text, '')
-
-          # passando a resposta do gemini com formatação markdown padrão 
+          
           modelResponse = response.text
           modelResponse = markdown.markdown(modelResponse)
-                  
 
           return render_template(
               "chatTemplate.html",
-              result = result,
-              modelResponse = modelResponse
+              modelResponse = modelResponse,
+              text = text
           )
-      
-      else:
-          return render_template("chatTemplate.html", result = None)
 
     except Exception as e:
         return render_template(

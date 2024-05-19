@@ -9,19 +9,15 @@
 <body>
     
     <section class="chat">
-        {%+ if result +%}
-            {%for message in result -%}
-                <strong class="role"> {{message.role}} </strong>
-                {% if message.role == 'user' %}
-                    <p class="userPrompt"> {{ message.parts[0].text }} </p>
-                {% else %}
-                    <p id="modelResponse" class="modelResponse"> {{ modelResponse | safe }} </p>
-                {% endif %}
-                <br>
-            {%- endfor %}
+        {%+ if modelResponse +%}
+            <p class="role">Usuário</p>
+            <p class="userPrompt">{{ text }}</p>
+            <br>
+            <p class="role">Modelo</p>
+            <p class="modelResponse"> {{ modelResponse | safe }} </p>
         {% else %}  
             <p class="initialPhrase">Digite um comando</p>
-        {% endif %}
+        {% endif %} 
     </section>
     
     <section class="form">
@@ -31,24 +27,5 @@
         </form>
     </section>
 
-    {% block javascript %}
-        <script>
-             function scrollToBottom() {
-                var content = document.getElementById(".chat");
-                content.scrollTop = content.scrollHeight;
-            }
-    
-            // Chamada da função após o carregamento da página
-            window.onload = function() {
-                scrollToBottom(); // Realiza o scroll automático quando a página carrega
-            };
-
-            function clearInput(){
-                if(response.length(-1)){
-                    Document.getElementById("text").value = ''
-                }
-            }
-        </script>
-    {% endblock %}
 </body>
 </html>

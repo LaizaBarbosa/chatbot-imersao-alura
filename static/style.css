@@ -57,10 +57,10 @@ body{
 }
 
 .role{
-
     opacity: 0.8;
     font-size: 15px;
     font-style: italic;
+    font-weight: bold;
 }
 
 .initialPhrase{
